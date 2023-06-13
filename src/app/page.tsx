@@ -1,8 +1,16 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 type Props = {};
 
 const page = (props: Props) => {
+  const [formData, setFormData] = useState<{}>({
+    name: "",
+    phone: "",
+    hospital: "",
+    time: "",
+  });
+
   return (
     <div>
       <div className="w-screen">
@@ -23,8 +31,29 @@ const page = (props: Props) => {
         </div>
 
         <div className="mx-auto grid max-w-screen-lg px-6 pb-20">
-          <div className="">
+          <div className="grid max-w-xl">
+            <p className="font-serif text-xl font-bold text-blue-900">Name</p>
+            <input
+              type="text"
+              placeholder="Enter Name Here"
+              className="p-2 border border-blue-900 rounded-md mt-2"
+            />
+          </div>
+          <div className="grid max-w-xl mt-4 ">
             <p className="font-serif text-xl font-bold text-blue-900">
+              Phone Number
+              <span className="text-[12px] pl-2 -mt-1">
+                Format:03xx-xxxxxxx
+              </span>
+            </p>
+            <input
+              type="number"
+              placeholder="Enter Phone Number Here"
+              className="p-2 border border-blue-900 rounded-md mt-2 "
+            />
+          </div>
+          <div className="">
+            <p className="font-serif text-xl mt-4 font-bold text-blue-900">
               Select Hospital
             </p>
             <div className="mt-4 grid max-w-3xl gap-x-4 gap-y-3 sm:grid-cols-2 md:grid-cols-3">
